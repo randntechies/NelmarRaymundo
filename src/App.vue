@@ -2,7 +2,9 @@
 import { onMounted, onUnmounted, ref, watch } from 'vue'
 
 const email = 'randntechies@gmail.com'
-const profilePhotoPath = '/Nelmar.png'
+const baseUrl = import.meta.env.BASE_URL
+const profilePhotoPath = `${baseUrl}Nelmar.png`
+const logoPath = `${baseUrl}logo.png`
 
 const isMenuOpen = ref(false)
 const isScrolled = ref(false)
@@ -142,7 +144,7 @@ onUnmounted(() => {
       <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
         <a href="#top" class="group inline-flex items-center gap-3" aria-label="Nelmar A. Raymundo home" @click="closeMenu">
           <img
-            src="/logo.png"
+            :src="logoPath"
             alt="NR logo"
             class="h-11 w-11 shrink-0 object-contain drop-shadow-lg drop-shadow-cyan-950/30"
           />
