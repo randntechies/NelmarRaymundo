@@ -24,19 +24,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: lts/*
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --include=dev
 
       - name: Build portfolio
-        run: npm run build
+        run: npx --yes vite@6.2.1 build
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
